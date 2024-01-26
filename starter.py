@@ -12,4 +12,4 @@ prompt = ChatPromptTemplate.from_messages([
 llm = ChatOpenAI()
 
 chain = prompt | llm | output_parser
-chain.invoke("how can langsmith help with testing?")
+print(chain.invoke({"input":"how can langsmith help with testing?"}))
