@@ -10,6 +10,6 @@ prompt = ChatPromptTemplate.from_messages([
 ])
 
 llm = ChatOpenAI()
-llm.invoke("how can langsmith help with testing?")
 
 chain = prompt | llm | output_parser
+chain.invoke("how can langsmith help with testing?")
