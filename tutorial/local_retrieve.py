@@ -11,11 +11,11 @@ from langchain.chains import create_retrieval_chain
 from langchain_community.embeddings import OllamaEmbeddings
 
 output_parser = StrOutputParser()
-llm = Ollama(model="llama2")
+llm = Ollama(model="llama2:13b")
 
 embeddings = OllamaEmbeddings()
 # loader
-loader = WebBaseLoader("https://docs.smith.langchain.com/overview")
+loader = WebBaseLoader("https://ant.design/docs/react/introduce")
 docs = loader.load()
 
 text_splitter = RecursiveCharacterTextSplitter()
@@ -35,5 +35,5 @@ document_chain = create_stuff_documents_chain(llm, prompt)
 retriever = vector.as_retriever()
 retrieval_chain = create_retrieval_chain(retriever, document_chain)
 
-response = retrieval_chain.invoke({"input": "how can langsmith help with testing?"})
+response = retrieval_chain.invoke({"input": "how can antd help with builds web applications?"})
 print(response["answer"])
