@@ -9,6 +9,6 @@ chain = APIChain.from_llm_and_api_docs(
     verbose=True,
     limit_to_domains=["https://api.open-meteo.com/"],
 )
-chain.run(
+chain.invoke(
     "What is the weather like right now in Munich, Germany in degrees Fahrenheit?"
 )
